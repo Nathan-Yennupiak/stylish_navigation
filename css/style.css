@@ -1,0 +1,82 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --body-bg: rgb(2, 44, 71);
+    --nav-bg: rgb(1, 74, 119);
+  }
+  
+
+html {
+    font-family: system-ui;
+}
+
+body{ 
+    min-height: 200vh;
+    margin: 0;
+    font-size: 1rem;
+    background: var(--body-bg);
+    color: white;
+    display: grid;
+    grid-template-columns: 15rem 1fr;
+    gap: 4rem;
+}
+
+nav {
+    position: sticky;
+    top: 0;
+    max-height: 100svh;
+    background: var(--nav-bg);
+}
+.nav-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    display: grid;
+    gap: 1rem;
+    padding-block: 3rem;
+    font-size: 1.2rem;
+}
+
+.nav-list li {
+    padding: 1rem 2rem;
+    margin-left: 2rem;
+    border-radius: 100vw 0 0 100vw;
+}
+
+.nav-list li.active {
+    background: var(--body-bg);
+    position: relative;
+}
+
+.nav-list li.active::before,
+.nav-list li.active::after {
+    --border-radius: 1rem;
+    content: '';
+    position: absolute;
+    width: var(--border-radius);
+    height: var(--border-radius);
+    right: -0;
+
+    background: var(--nav-bg);
+}
+
+.nav-list li.active::before {
+    top: calc(var(--border-radius)*-1);
+    box-shadow: 10px 10px 0 10px var(--body-bg);
+    border-radius: 0 0 100vw 0;
+}
+
+.nav-list li.active::after {
+    bottom: calc(var(--border-radius)*-1);
+    box-shadow: 10px -10px 0 10px var(--body-bg);
+    border-radius: 0 100vw 0  0;
+}
+
+.nav-list a {
+    color: white;
+    text-decoration: none;
+}
+
